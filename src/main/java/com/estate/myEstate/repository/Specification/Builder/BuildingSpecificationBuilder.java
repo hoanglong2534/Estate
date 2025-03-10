@@ -2,6 +2,8 @@ package com.estate.myEstate.repository.Specification.Builder;
 
 import com.estate.myEstate.model.dto.BuildingRequestDTO;
 import com.estate.myEstate.model.entity.BuildingEntity;
+import com.estate.myEstate.repository.Specification.Filter.*;
+import com.estate.myEstate.repository.Specification.Filter.HasName;
 import org.springframework.data.jpa.domain.Specification;
 
 public class BuildingSpecificationBuilder {
@@ -29,7 +31,7 @@ public class BuildingSpecificationBuilder {
         }
 
         if(buildingRequestDTO.getNumberofbasement()!= null) {
-            specification =  specification.and(HasNumberofbasement.with(buildingRequestDTO.getNumberofbasement()));
+            specification =  specification.and(HasNumberOfBasement.with(buildingRequestDTO.getNumberofbasement()));
         }
 
         if(buildingRequestDTO.getDirection()!= null && !buildingRequestDTO.getDirection().isEmpty()) {
@@ -95,10 +97,10 @@ public class BuildingSpecificationBuilder {
 
 
         if(buildingRequestDTO.getManagername()!= null && !buildingRequestDTO.getManagername().isEmpty()) {
-            specification =  specification.and(HasManagername.with(buildingRequestDTO.getManagername()));
+            specification =  specification.and(HasManagerName.with(buildingRequestDTO.getManagername()));
         }
         if(buildingRequestDTO.getManagerphonenumber()!= null && !buildingRequestDTO.getManagerphonenumber().isEmpty()) {
-            specification =  specification.and(HasManagerphonenumber.with(buildingRequestDTO.getManagerphonenumber()));
+            specification =  specification.and(HasManagerPhoneNumber.with(buildingRequestDTO.getManagerphonenumber()));
         }
 
         if(buildingRequestDTO.getStaffid()!= null) {
@@ -106,7 +108,7 @@ public class BuildingSpecificationBuilder {
         }
 
         if(buildingRequestDTO.getBuildingtype() != null && !buildingRequestDTO.getBuildingtype().isEmpty()) {
-            specification  = specification.and(HasBuidlingType.with(buildingRequestDTO.getBuildingtype()));
+            specification  = specification.and(HasBuildingType.with(buildingRequestDTO.getBuildingtype()));
         }
 
         return specification;
