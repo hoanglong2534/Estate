@@ -6,6 +6,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
           integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -432,10 +438,21 @@
                                                                 class="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
 
+
                                                     <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                           title="Giao tòa nhà" class="px-2 text-danger" id="btnGiao">
-                                                            <i class="bx bx-user-check font-size-18"></i></a>
+                                                        <a href="javascript:void(0);"
+                                                           data-bs-toggle="modal"
+                                                           data-bs-target="#modalGiaoToaNha"
+                                                           data-bs-toggle="tooltip"
+                                                           data-bs-placement="top"
+                                                           title="Giao tòa nhà"
+                                                           class="px-2 text-danger">
+                                                            <i class="bx bx-user-check font-size-18"></i>
+                                                        </a>
+                                                    </li>
+
+
+
                                                     </li>
 
 
@@ -678,7 +695,7 @@
             width: 18px;
             height: 18px;
             border: 1px solid black;
-            border-radius: px;
+            border-radius: 0px;
             background-color: white;
             cursor: pointer;
             display: inline-block;
