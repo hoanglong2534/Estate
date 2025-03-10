@@ -247,7 +247,11 @@
                 <div class="row">
                     <div class="col-md-2 mb-md-0 mb-4">
                         <label style="margin: 0;">Quận</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                        <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
+                            <option value="">Quận 1</option>
+                            <option value="1">Quận 2</option>
+                            <option value="2">Quận 4</option>
+                        </select>
                     </div>
                     <div class="col-md-5">
                         <label style="margin: 0;">Phường</label>
@@ -290,7 +294,12 @@
                     </div>
                     <div class="col-md-2">
                         <label style="margin: 0;">Nhân viên</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
+                        <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
+                            <option value="">Nguyễn Văn a</option>
+                            <option value="1">Nguyễn Văn b</option>
+                            <option value="2">Nguyễn Văn c</option>
+                            <option value="2">Nguyễn Văn d</option>
+                        </select>
                     </div>
                 </div>
 
