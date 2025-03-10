@@ -31,5 +31,4 @@ public class BuildingAdminController {
         return "admin/edit";
     }
 
-
 }
