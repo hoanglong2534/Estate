@@ -10,4 +10,16 @@ public class BuildingAdminController {
     public String signIn() {
         return "admin/sign-in";
     }
+
+    @GetMapping("/dashboard")
+    public String dashboard() {
+        return "admin/dashboard";
+    }
+
+    @GetMapping("/tables")
+    public String tables() {
+        return "admin/tables";
+    }
+
+
 }
