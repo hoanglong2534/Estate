@@ -1,6 +1,6 @@
 package com.estate.myEstate.converter;
 
-import com.estate.myEstate.model.dto.BuildingResponeDTO;
+import com.estate.myEstate.model.dto.BuildingResponseDTO;
 import com.estate.myEstate.model.entity.BuildingEntity;
 import com.estate.myEstate.model.entity.RentAreaEntity;
 import org.modelmapper.ModelMapper;
@@ -15,8 +15,8 @@ public class BuildingEntityToBuildingResponeDTO {
     @Autowired
     private ModelMapper modelMapper;
 
-    public BuildingResponeDTO convertBuildingDTO(BuildingEntity k) {
-        BuildingResponeDTO buildingDTO = modelMapper.map(k, BuildingResponeDTO.class);
+    public BuildingResponseDTO convertBuildingDTO(BuildingEntity k) {
+        BuildingResponseDTO buildingDTO = modelMapper.map(k, BuildingResponseDTO.class);
 
         List<RentAreaEntity> rentAreaEntities = k.getRentAreaEntities();
         String rentarea = rentAreaEntities.stream().map(it -> it.getValue().toString()).collect(Collectors.joining(","));

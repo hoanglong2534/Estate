@@ -4,20 +4,22 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/css/boxicons.min.css"
           integrity="sha512-pVCM5+SN2+qwj36KonHToF2p1oIvoU3bsqxphdOIWMYmgr4ZqD3t5DjKvvetKhXGc/ZG5REYTT6ltKfExEei/Q=="
-          crossorigin="anonymous" referrerpolicy="no-referrer" />
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.css"
-          integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous" />
+          integrity="sha256-NAxhqDvtY0l4xn+YVa6WjAcmd94NNfttjNsDmNatFVc=" crossorigin="anonymous"/>
 
 
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
@@ -26,17 +28,18 @@
         Quản lý
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900"/>
     <!-- Nucleo Icons -->
-    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <!-- Material Icons -->
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <!-- CSS Files -->
-    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
+    <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet"/>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -96,7 +99,8 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown pe-3 d-flex align-items-center">
-                        <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
+                            aria-labelledby="dropdownMenuButton">
                             <li class="mb-2">
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
@@ -139,10 +143,12 @@
                                     <div class="d-flex py-1">
                                         <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
                                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <title>credit-card</title>
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                    <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF"
+                                                       fill-rule="nonzero">
                                                         <g transform="translate(1716.000000, 291.000000)">
                                                             <g transform="translate(453.000000, 454.000000)">
                                                                 <path class="color-background"
@@ -218,107 +224,110 @@
                 </div>
             </div>
             <div class="card-body p-3">
-                <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-md-6 mb-md-0 mb-4">
-                        <label style="margin: 0;">Tên tòa nhà</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
+
+                <form action="" id="searchForm">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-md-6 mb-md-0 mb-4">
+                            <label style="margin: 0;">Tên tòa nhà</label>
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                        </div>
+                        <div class="col-md-6">
+                            <label style="margin: 0;">Diện tích sàn</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+
                     </div>
-                    <div class="col-md-6">
-                        <label style="margin: 0;">Diện tích sàn</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
+                    <div class="row">
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <label style="margin: 0;">Số tầng hầm</label>
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                        </div>
+                        <div class="col-md-4">
+                            <label style="margin: 0;">Hướng</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+                        <div class="col-md-4">
+                            <label style="margin: 0;">Hạng</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
                     </div>
 
-                </div>
-                <div class="row">
-                    <div class="col-md-4 mb-md-0 mb-4">
-                        <label style="margin: 0;">Số tầng hầm</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="margin: 0;">Hướng</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="margin: 0;">Hạng</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-2 mb-md-0 mb-4">
-                        <label style="margin: 0;">Quận</label>
-                        <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
-                            <option value="">Quận 1</option>
-                            <option value="1">Quận 2</option>
-                            <option value="2">Quận 4</option>
-                        </select>
-                    </div>
-                    <div class="col-md-5">
-                        <label style="margin: 0;">Phường</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-5">
-                        <label style="margin: 0;">Đường</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-3 mb-md-0 mb-4">
-                        <label style="margin: 0;">Diện tích từ</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-3">
-                        <label style="margin: 0;">Diện tích đến</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-3">
-                        <label style="margin: 0;">Giá thuê từ</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-3">
-                        <label style="margin: 0;">Giá thuê đến</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5 mb-md-0 mb-4">
-                        <label style="margin: 0;">Tên quản lý</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-5">
-                        <label style="margin: 0;">Số điện thoại quản lý</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-2">
-                        <label style="margin: 0;">Nhân viên</label>
-                        <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
-                            <option value="">Nguyễn Văn a</option>
-                            <option value="1">Nguyễn Văn b</option>
-                            <option value="2">Nguyễn Văn c</option>
-                            <option value="2">Nguyễn Văn d</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class="col-md-12 mt-2" id="loaiToaNha">
-                    <label>Loại tòa nhà:</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="nguyenCan" value="">
-                        <label class="form-check-label" for="nguyenCan">Nguyên căn</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="noiThat" value="">
-                        <label class="form-check-label" for="noiThat">Nội thất</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="tangTret" value="">
-                        <label class="form-check-label" for="tangTret">Tầng trệt</label>
+                    <div class="row">
+                        <div class="col-md-2 mb-md-0 mb-4">
+                            <label style="margin: 0;">Quận</label>
+                            <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
+                                <option value="">Quận 1</option>
+                                <option value="1">Quận 2</option>
+                                <option value="2">Quận 4</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <label style="margin: 0;">Phường</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+                        <div class="col-md-5">
+                            <label style="margin: 0;">Đường</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
                     </div>
 
-                </div>
+
+                    <div class="row">
+                        <div class="col-md-3 mb-md-0 mb-4">
+                            <label style="margin: 0;">Diện tích từ</label>
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                        </div>
+                        <div class="col-md-3">
+                            <label style="margin: 0;">Diện tích đến</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+                        <div class="col-md-3">
+                            <label style="margin: 0;">Giá thuê từ</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+                        <div class="col-md-3">
+                            <label style="margin: 0;">Giá thuê đến</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-md-0 mb-4">
+                            <label style="margin: 0;">Tên quản lý</label>
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                        </div>
+                        <div class="col-md-5">
+                            <label style="margin: 0;">Số điện thoại quản lý</label>
+                            <input type="text" class="form-control border p-1 rounded-0">
+                        </div>
+                        <div class="col-md-2">
+                            <label style="margin: 0;">Nhân viên</label>
+                            <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
+                                <option value="">Nguyễn Văn a</option>
+                                <option value="1">Nguyễn Văn b</option>
+                                <option value="2">Nguyễn Văn c</option>
+                                <option value="2">Nguyễn Văn d</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2" id="loaiToaNha">
+                        <label>Loại tòa nhà:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="nguyenCan" value="">
+                            <label class="form-check-label" for="nguyenCan">Nguyên căn</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="noiThat" value="">
+                            <label class="form-check-label" for="noiThat">Nội thất</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" id="tangTret" value="">
+                            <label class="form-check-label" for="tangTret">Tầng trệt</label>
+                        </div>
+
+                    </div>
+                </form>
 
                 <style>
                     #loaiToaNha .form-check-input {
@@ -402,12 +411,15 @@
                         <div class="col-lg-12">
                             <div class="">
                                 <div class="table-responsive">
-                                    <table class="table project-list-table table-nowrap align-middle table-borderless" id="respone">
+                                    <table class="table project-list-table table-nowrap align-middle table-borderless"
+                                           id="respone">
                                         <thead>
                                         <tr>
                                             <th scope="col" class="ps-1" style="width: 50px;">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input"
-                                                                                            id="contacusercheck" /><label class="form-check-label" for="contacusercheck"></label>
+                                                <div class="form-check font-size-16"><input type="checkbox"
+                                                                                            class="form-check-input"
+                                                                                            id="contacusercheck"/><label
+                                                        class="form-check-label" for="contacusercheck"></label>
                                                 </div>
                                             </th>
                                             <th scope="col">Tên tòa nhà</th>
@@ -423,8 +435,10 @@
                                         <tbody>
                                         <tr>
                                             <th scope="row" class="ps-1">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input"
-                                                                                            id="contacusercheck1" /><label class="form-check-label" for="contacusercheck1"></label>
+                                                <div class="form-check font-size-16"><input type="checkbox"
+                                                                                            class="form-check-input"
+                                                                                            id="contacusercheck1"/><label
+                                                        class="form-check-label" for="contacusercheck1"></label>
                                                 </div>
                                             </th>
                                             <td>Hồ Gươm Plaza</td>
@@ -442,7 +456,8 @@
                                                                 class="bx bx-pencil font-size-18"></i></a>
                                                     </li>
                                                     <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip"
+                                                           data-bs-placement="top"
                                                            title="Xóa tòa nhà" class="px-2 text-danger"><i
                                                                 class="bx bx-trash-alt font-size-18"></i></a>
                                                     </li>
@@ -459,7 +474,6 @@
                                                             <i class="bx bx-user-check font-size-18"></i>
                                                         </a>
                                                     </li>
-
 
 
                                                     </li>
@@ -539,11 +553,11 @@
                         white-space: nowrap;
                     }
 
-                    .table-borderless>:not(caption)>*>* {
+                    .table-borderless > :not(caption) > * > * {
                         border-bottom-width: 0;
                     }
 
-                    .table>:not(caption)>*>* {
+                    .table > :not(caption) > * > * {
                         padding: 0.75rem 0.75rem;
                         background-color: var(--bs-table-bg);
                         border-bottom-width: 1px;
@@ -636,25 +650,30 @@
                 </div>
                 <div class="d-flex">
                     <button class="btn bg-gradient-dark px-3 mb-2" data-class="bg-gradient-dark"
-                            onclick="sidebarType(this)">Tối</button>
+                            onclick="sidebarType(this)">Tối
+                    </button>
                     <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
-                            onclick="sidebarType(this)">Trong suốt</button>
+                            onclick="sidebarType(this)">Trong suốt
+                    </button>
                     <button class="btn bg-gradient-dark px-3 mb-2  active ms-2" data-class="bg-white"
-                            onclick="sidebarType(this)">Sáng</button>
+                            onclick="sidebarType(this)">Sáng
+                    </button>
                 </div>
                 <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
                 <!-- Navbar Fixed -->
                 <div class="mt-3 d-flex">
                     <h6 class="mb-0">Cố định thanh điều hướng</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
+                               onclick="navbarFixed(this)">
                     </div>
                 </div>
                 <hr class="horizontal dark my-3">
                 <div class="mt-2 d-flex">
                     <h6 class="mb-0">Sáng / Tối</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version"
+                               onclick="darkMode(this)">
                     </div>
                 </div>
                 <hr class="horizontal dark my-sm-4">
@@ -662,7 +681,6 @@
             </div>
         </div>
     </div>
-
 
 
     <!-- Modal Giao Tòa Nhà -->
@@ -742,7 +760,22 @@
     <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="../assets/js/plugins/chartjs.min.js"></script>
+
     <script>
+
+        $(document).ready(function () {
+            //khi nhấn tìm kiếm
+            $('#searchForm').submit(function(event){
+                event.preventDefault();
+                var requestData = getData(); //lay du lieu tu form
+                searchBuilding(requestData); //tim kiem
+            });
+        });
+
+        function getData(){
+
+        }
+
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
         new Chart(ctx, {

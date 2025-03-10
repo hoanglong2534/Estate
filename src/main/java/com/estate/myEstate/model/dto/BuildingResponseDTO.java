@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BuildingResponeDTO {
+public class BuildingResponseDTO {
     private String name;
     private String address;
     private Integer numberOfBasement;

@@ -2,7 +2,7 @@ package com.estate.myEstate.service.Impl;
 
 import com.estate.myEstate.converter.BuildingEntityToBuildingResponeDTO;
 import com.estate.myEstate.model.dto.BuildingRequestDTO;
-import com.estate.myEstate.model.dto.BuildingResponeDTO;
+import com.estate.myEstate.model.dto.BuildingResponseDTO;
 import com.estate.myEstate.model.entity.BuildingEntity;
 import com.estate.myEstate.repository.Interface.BuildingRepository;
 import com.estate.myEstate.repository.Specification.Builder.BuildingSpecificationBuilder;
@@ -24,7 +24,7 @@ public class BuildingServiceImpl implements BuildingService {
 
 
     @Override
-    public List<BuildingResponeDTO> searchBuilding(BuildingRequestDTO buildingRequestDTO) {
+    public List<BuildingResponseDTO> searchBuilding(BuildingRequestDTO buildingRequestDTO) {
 
         System.out.println("Building Type in DTO: " + buildingRequestDTO.getBuildingtype());
 
