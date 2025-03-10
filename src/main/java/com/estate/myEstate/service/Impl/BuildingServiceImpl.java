@@ -8,6 +8,7 @@ import com.estate.myEstate.repository.Interface.BuildingRepository;
 import com.estate.myEstate.repository.Specification.Builder.BuildingSpecificationBuilder;
 import com.estate.myEstate.service.Interface.BuildingService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +18,9 @@ import java.util.List;
 @Service
 public class BuildingServiceImpl implements BuildingService {
 
-
+    @Autowired
     private final BuildingRepository buildingRepository;
-    private final BuildingEntityToBuildingResponeDTO converter;
+    private final BuildingEntityToBuildingResponeDTO buildingEntityToBuildingResponeDTO;
 
 
     @Override
@@ -32,6 +33,6 @@ public class BuildingServiceImpl implements BuildingService {
         System.out.println("Generated Specification:hehehhehheheeee " + specification);
 
         List<BuildingEntity> buildingEntities = buildingRepository.findAll(specification);
-        return buildingEntities.stream().map(converter::convertBuildingDTO).toList();
+        return buildingEntities.stream().map(buildingEntityToBuildingResponeDTO::convertBuildingDTO).toList();
     }
 }
