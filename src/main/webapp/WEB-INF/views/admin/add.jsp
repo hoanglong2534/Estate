@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,10 +16,11 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/estate.png">
     <title>
-        Quản lý
+        Thêm tòa nhà
     </title>
     <!--     Fonts and icons     -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
     <!-- Nucleo Icons -->
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark" href="/">
+                <a class="nav-link text-dark" href="#">
                     <i class="material-symbols-rounded opacity-5">login</i>
                     <span class="nav-link-text ms-1">Client</span>
                 </a>
@@ -90,7 +90,8 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown pe-3 d-flex align-items-center">
-                        <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
+                        <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4"
+                            aria-labelledby="dropdownMenuButton">
                             <li class="mb-2">
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
@@ -133,10 +134,12 @@
                                     <div class="d-flex py-1">
                                         <div class="avatar avatar-sm bg-gradient-secondary  me-3  my-auto">
                                             <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1"
-                                                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                 xmlns="http://www.w3.org/2000/svg"
+                                                 xmlns:xlink="http://www.w3.org/1999/xlink">
                                                 <title>credit-card</title>
                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                                    <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                    <g transform="translate(-2169.000000, -745.000000)"
+                                                       fill="#FFFFFF" fill-rule="nonzero">
                                                         <g transform="translate(1716.000000, 291.000000)">
                                                             <g transform="translate(453.000000, 454.000000)">
                                                                 <path class="color-background"
@@ -196,18 +199,26 @@
     <!-- tìm kiếm -->
 
     <div class="col-md-12 mb-lg-0 mb-4 search-container">
-        <h3 class="mb-0">Danh sách toà nhà</h3>
+        <h3 class="mb-0">Thêm tòa nhà</h3>
         <div class="card mt-4">
             <div class="card-header pb-0 p-3">
                 <div class="row">
                     <div class="col-6 d-flex align-items-center">
-                        <h6 class="mb-0">Tìm kiếm</h6>
+                        <h6 class="mb-0">Thêm</h6>
                     </div>
                     <div class="col-6 text-end">
-                        <a class="btn btn-info bg-gradient-info  mb-0" href="javascript:;">
-                            <i class="material-symbols-rounded text-sm">search</i>&nbsp;&nbsp;Tìm kiếm
+                        <a href="/tables" class="btn btn-success bg-gradient-info ">
+                            <i class="bx bx-x me-1"></i> Hủy thao tác
+
                         </a>
+
+                        <a href="#" data-bs-toggle="modal" data-bs-target=".add-new"
+                           class="btn btn-success bg-gradient-success ">
+                            <i class="bx bx-plus me-1"></i> Thêm tòa nhà
+                        </a>
+
                     </div>
+
 
                 </div>
             </div>
@@ -256,19 +267,19 @@
 
                 <div class="row">
                     <div class="col-md-3 mb-md-0 mb-4">
-                        <label style="margin: 0;">Diện tích từ</label>
+                        <label style="margin: 0;">Diện tích thuê</label>
                         <input type="text" class="form-control border  rounded-0 flex-row p-1">
                     </div>
                     <div class="col-md-3">
-                        <label style="margin: 0;">Diện tích đến</label>
+                        <label style="margin: 0;">Giá thuêthuê</label>
                         <input type="text" class="form-control border p-1 rounded-0">
                     </div>
                     <div class="col-md-3">
-                        <label style="margin: 0;">Giá thuê từ</label>
+                        <label style="margin: 0;">Hạng </label>
                         <input type="text" class="form-control border p-1 rounded-0">
                     </div>
                     <div class="col-md-3">
-                        <label style="margin: 0;">Giá thuê đến</label>
+                        <label style="margin: 0;">Kết cấu</label>
                         <input type="text" class="form-control border p-1 rounded-0">
                     </div>
                 </div>
@@ -300,7 +311,7 @@
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="checkbox" id="tangTret" value="">
-                        <label class="form-check-label" for="tangTret">Tầng trệt</label>
+                        <label class="form-check-label" for="khongNoiThat">Tầng trệt</label>
                     </div>
 
                 </div>
@@ -348,243 +359,6 @@
     </div>
 
 
-    <!-- respone -->
-
-    <div class="col-md-12 mb-lg-0 mb-4 result-container">
-        <div class="card mt-4">
-
-            <div class="card-body p-3">
-                <!-- bảng kết quả -->
-
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <h6 class="mb-0">Kết quả tìm kiếm</h6>
-
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
-                                <div>
-                                    <ul class="nav nav-pills">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target=".add-new"
-                                           class="btn btn-danger bg-gradient-danger">
-                                            <i class="bx bx-trash font-size-18"></i> Xóa tòa nhà
-                                        </a>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <a href="/add" class="btn btn-success bg-gradient-success">
-                                        <i class="bx bx-plus me-1"></i> Thêm tòa nhà
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="">
-                                <div class="table-responsive">
-                                    <table class="table project-list-table table-nowrap align-middle table-borderless" id="respone">
-                                        <thead>
-                                        <tr>
-                                            <th scope="col" class="ps-1" style="width: 50px;">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input"
-                                                                                            id="contacusercheck" /><label class="form-check-label" for="contacusercheck"></label>
-                                                </div>
-                                            </th>
-                                            <th scope="col">Tên tòa nhà</th>
-                                            <th scope="col">Địa chỉ</th>
-                                            <th scope="col">Số tầng hầm</th>
-                                            <th scope="col">Tên quản lý</th>
-                                            <th scope="col">SĐT quản lý</th>
-                                            <th scope="col">Diện tích sàn</th>
-                                            <th scope="col">Diện tích thuê</th>
-                                            <th scope="col" style="width: 200px;">Hành động</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row" class="ps-1">
-                                                <div class="form-check font-size-16"><input type="checkbox" class="form-check-input"
-                                                                                            id="contacusercheck1" /><label class="form-check-label" for="contacusercheck1"></label>
-                                                </div>
-                                            </th>
-                                            <td>Hồ Gươm Plaza</td>
-                                            <td>10, Trần Phú, Hà Đông</td>
-                                            <td>6</td>
-                                            <td>anh Long</td>
-                                            <td>0988765432</td>
-                                            <td>125</td>
-                                            <td>80</td>
-                                            <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="/edit" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                           title="Sửa tòa nhà" class="px-2 text-primary"><i
-                                                                class="bx bx-pencil font-size-18"></i></a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                           title="Xóa tòa nhà" class="px-2 text-danger"><i
-                                                                class="bx bx-trash-alt font-size-18"></i></a>
-                                                    </li>
-
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                           title="Giao tòa nhà" class="px-2 text-danger" id="btnGiao">
-                                                            <i class="bx bx-user-check font-size-18"></i></a>
-                                                    </li>
-
-
-                                                </ul>
-                                            </td>
-                                        </tr>
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <style>
-                    td {
-                        text-align: center;
-                        /* Căn giữa ngang */
-                        vertical-align: middle;
-                        /* Căn giữa dọc */
-                        padding: 10px;
-                        /* Giãn cách để đẹp hơn */
-                    }
-
-                    #respone .form-check-input {
-                        appearance: none;
-                        -webkit-appearance: none;
-                        -moz-appearance: none;
-                        width: 18px;
-                        height: 18px;
-                        border: 1px solid black;
-                        border-radius: 0px;
-                        background-color: white;
-                        cursor: pointer;
-                        display: inline-block;
-                        position: relative;
-                    }
-
-                    /* Khi checkbox được chọn */
-                    #respone .form-check-input:checked {
-                        background-color: black !important;
-                        border-color: black !important;
-                    }
-
-                    /* Ẩn dấu check trắng */
-                    #respone .form-check-input:checked::after {
-                        display: none !important;
-                        content: "";
-                    }
-
-                    #respone .form-check-input:checked::before {
-                        content: "✔";
-                        font-size: 14px;
-                        color: white;
-                        position: absolute;
-                        left: 50%;
-                        top: 50%;
-                        transform: translate(-50%, -50%);
-                        font-weight: bold;
-                    }
-
-                    .project-list-table {
-                        border-collapse: separate;
-                        border-spacing: 0 12px
-                    }
-
-                    .project-list-table tr {
-                        background-color: #fff
-                    }
-
-                    .table-nowrap td,
-                    .table-nowrap th {
-                        white-space: nowrap;
-                    }
-
-                    .table-borderless>:not(caption)>*>* {
-                        border-bottom-width: 0;
-                    }
-
-                    .table>:not(caption)>*>* {
-                        padding: 0.75rem 0.75rem;
-                        background-color: var(--bs-table-bg);
-                        border-bottom-width: 1px;
-                        box-shadow: inset 0 0 0 9999px var(--bs-table-accent-bg);
-                    }
-
-                    .avatar-sm {
-                        height: 2rem;
-                        width: 2rem;
-                    }
-
-                    .rounded-circle {
-                        border-radius: 50% !important;
-                    }
-
-                    .me-2 {
-                        margin-right: 0.5rem !important;
-                    }
-
-                    img,
-                    svg {
-                        vertical-align: middle;
-                    }
-
-                    a {
-                        color: #3b76e1;
-                        text-decoration: none;
-                    }
-
-                    .bg-soft-primary {
-                        background-color: rgba(59, 118, 225, .25) !important;
-                    }
-                </style>
-
-                <!-- end bảng kết quả -->
-            </div>
-        </div>
-    </div>
-
-    <style>
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(100px);
-                /* Bắt đầu từ dưới lên */
-            }
-
-            to {
-                opacity: 2;
-                transform: translateY(0);
-            }
-        }
-
-        /* Áp dụng animation cho phần tìm kiếm */
-        .search-container {
-            animation: slideIn 0.8s ease-out;
-        }
-
-        /* Áp dụng animation cho bảng kết quả */
-        .result-container {
-            animation: slideIn 1s ease-out 0.3s;
-            /* Delay 0.3s để kết quả xuất hiện sau */
-            opacity: 0;
-            /* Ẩn trước khi animation chạy */
-            animation-fill-mode: forwards;
-        }
-    </style>
 
     <div class="fixed-plugin">
         <div class="card shadow-lg">
@@ -621,14 +395,16 @@
                 <div class="mt-3 d-flex">
                     <h6 class="mb-0">Cố định thanh điều hướng</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
+                               onclick="navbarFixed(this)">
                     </div>
                 </div>
                 <hr class="horizontal dark my-3">
                 <div class="mt-2 d-flex">
                     <h6 class="mb-0">Sáng / Tối</h6>
                     <div class="form-check form-switch ps-0 ms-auto my-auto">
-                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+                        <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version"
+                               onclick="darkMode(this)">
                     </div>
                 </div>
                 <hr class="horizontal dark my-sm-4">
@@ -636,79 +412,6 @@
             </div>
         </div>
     </div>
-
-
-
-    <!-- Modal Giao Tòa Nhà -->
-    <div class="modal fade" id="modalGiaoToaNha" tabindex="-1" aria-labelledby="modalGiaoToaNhaLabel"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modalGiaoToaNhaLabel">Giao Tòa Nhà</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Chọn nhân viên để giao</p>
-                    <div class="list-group">
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="1"> Nguyễn Văn A
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="2"> Trần Thị B
-                        </label>
-                        <label class="list-group-item">
-                            <input class="form-check-input me-1" type="checkbox" value="3"> Lê Văn C
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-                    <button type="button" class="btn btn-info" id="btnGiaoToaNha">Giao tòa nhà</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        #modalGiaoToaNha .form-check-input {
-            appearance: none;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            width: 18px;
-            height: 18px;
-            border: 1px solid black;
-            border-radius: px;
-            background-color: white;
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-        }
-
-        /* Khi checkbox được chọn */
-        #modalGiaoToaNha .form-check-input:checked {
-            background-color: black !important;
-            border-color: black !important;
-        }
-
-        /* Ẩn dấu check trắng */
-        #modalGiaoToaNha .form-check-input:checked::after {
-            display: none !important;
-            content: "";
-        }
-
-        #modalGiaoToaNha .form-check-input:checked::before {
-            content: "✔";
-            font-size: 14px;
-            color: white;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            font-weight: bold;
-        }
-    </style>
-
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>

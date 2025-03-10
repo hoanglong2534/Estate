@@ -21,5 +21,15 @@ public class BuildingAdminController {
         return "admin/tables";
     }
 
+    @GetMapping("/add")
+    public String add() {
+        return "admin/add";
+    }
+
+    @GetMapping("/edit")
+    public String edit() {
+        return "admin/edit";
+    }
+
 
 }
