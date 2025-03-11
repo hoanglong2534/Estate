@@ -229,33 +229,34 @@
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-md-6 mb-md-0 mb-4">
                             <label style="margin: 0;">Tên tòa nhà</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="name">
                         </div>
                         <div class="col-md-6">
                             <label style="margin: 0;">Diện tích sàn</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="floorarea">
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-4 mb-md-0 mb-4">
                             <label style="margin: 0;">Số tầng hầm</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1"
+                                   id="numberofbasement">
                         </div>
                         <div class="col-md-4">
                             <label style="margin: 0;">Hướng</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="direction">
                         </div>
                         <div class="col-md-4">
                             <label style="margin: 0;">Hạng</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="level">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-2 mb-md-0 mb-4">
                             <label style="margin: 0;">Quận</label>
-                            <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
+                            <select class="form-select border rounded-0 flex-row p-1" id="districtid">
                                 <option value="">Quận 1</option>
                                 <option value="1">Quận 2</option>
                                 <option value="2">Quận 4</option>
@@ -263,11 +264,11 @@
                         </div>
                         <div class="col-md-5">
                             <label style="margin: 0;">Phường</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="ward">
                         </div>
                         <div class="col-md-5">
                             <label style="margin: 0;">Đường</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="street">
                         </div>
                     </div>
 
@@ -275,34 +276,34 @@
                     <div class="row">
                         <div class="col-md-3 mb-md-0 mb-4">
                             <label style="margin: 0;">Diện tích từ</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="rentareafrom">
                         </div>
                         <div class="col-md-3">
                             <label style="margin: 0;">Diện tích đến</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="rentareato">
                         </div>
                         <div class="col-md-3">
                             <label style="margin: 0;">Giá thuê từ</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="rentpricefrom">
                         </div>
                         <div class="col-md-3">
                             <label style="margin: 0;">Giá thuê đến</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="rentpriceto">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-5 mb-md-0 mb-4">
                             <label style="margin: 0;">Tên quản lý</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="managername">
                         </div>
                         <div class="col-md-5">
                             <label style="margin: 0;">Số điện thoại quản lý</label>
-                            <input type="text" class="form-control border p-1 rounded-0">
+                            <input type="text" class="form-control border p-1 rounded-0" id="managerphonenumber">
                         </div>
                         <div class="col-md-2">
                             <label style="margin: 0;">Nhân viên</label>
-                            <select class="form-select border rounded-0 flex-row p-1" id="district" name="district">
+                            <select class="form-select border rounded-0 flex-row p-1" id="staffid" name="staff">
                                 <option value="">Nguyễn Văn a</option>
                                 <option value="1">Nguyễn Văn b</option>
                                 <option value="2">Nguyễn Văn c</option>
@@ -314,15 +315,18 @@
                     <div class="col-md-12 mt-2" id="loaiToaNha">
                         <label>Loại tòa nhà:</label>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="nguyenCan" value="">
+                            <input class="form-check-input" type="checkbox" id="nguyenCan" name="buildingType"
+                                   value="nguyen-can">
                             <label class="form-check-label" for="nguyenCan">Nguyên căn</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="noiThat" value="">
+                            <input class="form-check-input" type="checkbox" name="buildingType" id="noiThat"
+                                   value="noi-that">
                             <label class="form-check-label" for="noiThat">Nội thất</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="checkbox" id="tangTret" value="">
+                            <input class="form-check-input" type="checkbox" name="buildingType" id="tangTret"
+                                   value="tang-tret">
                             <label class="form-check-label" for="tangTret">Tầng trệt</label>
                         </div>
 
@@ -765,14 +769,57 @@
 
         $(document).ready(function () {
             //khi nhấn tìm kiếm
-            $('#searchForm').submit(function(event){
+            $('#searchForm').submit(function (event) {
                 event.preventDefault();
                 var requestData = getData(); //lay du lieu tu form
                 searchBuilding(requestData); //tim kiem
             });
         });
 
-        function getData(){
+        function getData() {
+            return {
+                name: $("#name").val(),
+                floorarea: $("#floorarea").val(),
+                numberofbasement: $("#numberofbasement").val(),
+                direction: $("#direction").val(),
+                level: $("#level").val(),
+                districtid: $("#districtid").val(),
+                ward: $("#ward").val(),
+                street: $("#street").val(),
+                rentareafrom: $("#rentareafrom").val(),
+                rentareato: $("#rentareato").val(),
+                rentpricefrom: $("#rentpricefrom").val(),
+                rentpriceto: $("#rentpriceto").val(),
+                managername: $("#managername").val(),
+                managerphonenumber: $("#managerphonenumber").val(),
+                staffid: $("#staffid").val(),
+                buildingtype: getCheckedValues("buildingType")
+
+            };
+        }
+
+        function getCheckedValues(name) {
+            return $('input[name="' + name + '"]:checked').map(function () {
+                return this.value;
+            }).get();
+        }
+
+        function searchBuilding(requestData) {
+            $.ajax({
+                url: "/api/buildings/search",
+                type: "GET",
+                data: requestData,
+                success: function (response) {
+                    console.log("Kết quả tìm kiếm:", response);
+                    renderBuildingList(response); // Hiển thị kết quả
+                },
+                error: function (error) {
+                    console.error("Lỗi tìm kiếm:", error);
+                }
+            });
+        }
+
+        function renderBuildingList(building){
 
         }
 
@@ -1020,6 +1067,6 @@
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
+</main>
 </body>
-
 </html>
