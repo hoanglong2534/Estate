@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -437,55 +439,53 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row" class="ps-1">
-                                                <div class="form-check font-size-16"><input type="checkbox"
-                                                                                            class="form-check-input"
-                                                                                            id="contacusercheck1"/><label
-                                                        class="form-check-label" for="contacusercheck1"></label>
-                                                </div>
-                                            </th>
-                                            <td>Hồ Gươm Plaza</td>
-                                            <td>10, Trần Phú, Hà Đông</td>
-                                            <td>6</td>
-                                            <td>anh Long</td>
-                                            <td>0988765432</td>
-                                            <td>125</td>
-                                            <td>80</td>
-                                            <td>
-                                                <ul class="list-inline mb-0">
-                                                    <li class="list-inline-item">
-                                                        <a href="/edit" data-bs-toggle="tooltip" data-bs-placement="top"
-                                                           title="Sửa tòa nhà" class="px-2 text-primary"><i
-                                                                class="bx bx-pencil font-size-18"></i></a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                           data-bs-placement="top"
-                                                           title="Xóa tòa nhà" class="px-2 text-danger"><i
-                                                                class="bx bx-trash-alt font-size-18"></i></a>
-                                                    </li>
+                                        <c:forEach var="building" items="${buildingList}">
+                                            <tr>
+                                                <th scope="row" class="ps-1">
+                                                    <div class="form-check font-size-16"><input type="checkbox"
+                                                                                                class="form-check-input"
+                                                                                                id="contacusercheck1"/><label
+                                                            class="form-check-label" for="contacusercheck1"></label>
+                                                    </div>
+                                                </th>
+                                                <td>${building.name}</td>
+                                                <td>${building.address}</td>
+                                                <td>${building.numberOfBasement}</td>
+                                                <td>${building.managerName}</td>
+                                                <td>${building.managerPhoneNumber}</td>
+                                                <td>${building.floorArea}</td>
+                                                <td>${building.rentArea}</td>
+                                                <td>
+                                                    <ul class="list-inline mb-0">
+                                                        <li class="list-inline-item">
+                                                            <a href="/edit" data-bs-toggle="tooltip"
+                                                               data-bs-placement="top"
+                                                               title="Sửa tòa nhà" class="px-2 text-primary"><i
+                                                                    class="bx bx-pencil font-size-18"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <a href="javascript:void(0);" data-bs-toggle="tooltip"
+                                                               data-bs-placement="top"
+                                                               title="Xóa tòa nhà" class="px-2 text-danger"><i
+                                                                    class="bx bx-trash-alt font-size-18"></i></a>
+                                                        </li>
 
 
-                                                    <li class="list-inline-item">
-                                                        <a href="javascript:void(0);"
-                                                           data-bs-toggle="modal"
-                                                           data-bs-target="#modalGiaoToaNha"
-                                                           data-bs-toggle="tooltip"
-                                                           data-bs-placement="top"
-                                                           title="Giao tòa nhà"
-                                                           class="px-2 text-danger">
-                                                            <i class="bx bx-user-check font-size-18"></i>
-                                                        </a>
-                                                    </li>
-
-
-                                                    </li>
-
-
-                                                </ul>
-                                            </td>
-                                        </tr>
+                                                        <li class="list-inline-item">
+                                                            <a href="javascript:void(0);"
+                                                               data-bs-toggle="modal"
+                                                               data-bs-target="#modalGiaoToaNha"
+                                                               data-bs-toggle="tooltip"
+                                                               data-bs-placement="top"
+                                                               title="Giao tòa nhà"
+                                                               class="px-2 text-danger">
+                                                                <i class="bx bx-user-check font-size-18"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
 
                                         </tbody>
                                     </table>
@@ -493,7 +493,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <style>
@@ -766,62 +765,6 @@
     <script src="../assets/js/plugins/chartjs.min.js"></script>
 
     <script>
-
-        $(document).ready(function () {
-            //khi nhấn tìm kiếm
-            $('#searchForm').submit(function (event) {
-                event.preventDefault();
-                var requestData = getData(); //lay du lieu tu form
-                searchBuilding(requestData); //tim kiem
-            });
-        });
-
-        function getData() {
-            return {
-                name: $("#name").val(),
-                floorarea: $("#floorarea").val(),
-                numberofbasement: $("#numberofbasement").val(),
-                direction: $("#direction").val(),
-                level: $("#level").val(),
-                districtid: $("#districtid").val(),
-                ward: $("#ward").val(),
-                street: $("#street").val(),
-                rentareafrom: $("#rentareafrom").val(),
-                rentareato: $("#rentareato").val(),
-                rentpricefrom: $("#rentpricefrom").val(),
-                rentpriceto: $("#rentpriceto").val(),
-                managername: $("#managername").val(),
-                managerphonenumber: $("#managerphonenumber").val(),
-                staffid: $("#staffid").val(),
-                buildingtype: getCheckedValues("buildingType")
-
-            };
-        }
-
-        function getCheckedValues(name) {
-            return $('input[name="' + name + '"]:checked').map(function () {
-                return this.value;
-            }).get();
-        }
-
-        function searchBuilding(requestData) {
-            $.ajax({
-                url: "/api/buildings/search",
-                type: "GET",
-                data: requestData,
-                success: function (response) {
-                    console.log("Kết quả tìm kiếm:", response);
-                    renderBuildingList(response); // Hiển thị kết quả
-                },
-                error: function (error) {
-                    console.error("Lỗi tìm kiếm:", error);
-                }
-            });
-        }
-
-        function renderBuildingList(building){
-
-        }
 
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
