@@ -310,7 +310,7 @@
                             <select class="form-select border rounded-0 flex-row p-1" id="staffid" name="staff">
                                 <option value="">Chọn nhân viên</option>
                                 <c:forEach var="user" items="${userList}">
-                                    <option value="${user.id}">${user.username}</option>
+                                    <option value="${user.id}">${user.fullname}</option>
                                 </c:forEach>
 
                             </select>
@@ -769,11 +769,18 @@
 
     <script>
 
-        $(document).ready(function (){
-            $("#btnSearch").click(function (){
-
+        $(document).ready(function () {
+            $("#btnSearch").click(function () {
+                searchBuildings();
             });
         });
+
+        function searchBuildings(){
+            var data = {
+
+            }
+        }
+
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
         new Chart(ctx, {
