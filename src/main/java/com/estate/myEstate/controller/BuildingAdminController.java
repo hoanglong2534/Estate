@@ -2,7 +2,11 @@ package com.estate.myEstate.controller;
 
 import com.estate.myEstate.model.dto.BuildingRequestDTO;
 import com.estate.myEstate.model.dto.BuildingResponseDTO;
+import com.estate.myEstate.model.entity.DistrictEntity;
+import com.estate.myEstate.model.entity.UserEntity;
 import com.estate.myEstate.service.Interface.BuildingService;
+import com.estate.myEstate.service.Interface.DistrictService;
+import com.estate.myEstate.service.Interface.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -13,9 +17,13 @@ import java.util.List;
 public class BuildingAdminController {
 
     private final BuildingService buildingService;
+    private final DistrictService districtService;
+    private final UserService userService;
 
-    public BuildingAdminController(BuildingService buildingService) {
+    public BuildingAdminController(BuildingService buildingService, DistrictService districtService, UserService userService) {
         this.buildingService = buildingService;
+        this.districtService = districtService;
+        this.userService = userService;
     }
 
     @GetMapping("/sign-in")
@@ -31,8 +39,18 @@ public class BuildingAdminController {
     @GetMapping("/tables")
     public ModelAndView tables() {
         ModelAndView mav = new ModelAndView("admin/tables");
+        //danh sách tòa nhà
         List<BuildingResponseDTO> buildingResponseDTOList = buildingService.searchBuilding(new BuildingRequestDTO());
         mav.addObject("buildingList", buildingResponseDTOList);
+
+        //danh sách quận
+        List<DistrictEntity> districtList = districtService.getDistricts();
+        mav.addObject("districtList", districtList);
+
+        //danh sách nhân viên
+        List<UserEntity> userList = userService.getUsers();
+        mav.addObject("userList", userList);
+
         return mav;
     }
 

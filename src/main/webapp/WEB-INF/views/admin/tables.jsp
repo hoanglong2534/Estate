@@ -218,7 +218,7 @@
                         <h6 class="mb-0">Tìm kiếm</h6>
                     </div>
                     <div class="col-6 text-end">
-                        <a class="btn btn-info bg-gradient-info  mb-0" href="javascript:;">
+                        <a class="btn btn-info bg-gradient-info  mb-0" href="javascript:;" id="btnSearch">
                             <i class="material-symbols-rounded text-sm">search</i>&nbsp;&nbsp;Tìm kiếm
                         </a>
                     </div>
@@ -258,10 +258,12 @@
                     <div class="row">
                         <div class="col-md-2 mb-md-0 mb-4">
                             <label style="margin: 0;">Quận</label>
-                            <select class="form-select border rounded-0 flex-row p-1" id="districtid">
-                                <option value="">Quận 1</option>
-                                <option value="1">Quận 2</option>
-                                <option value="2">Quận 4</option>
+                            <select class="form-select border rounded-0 flex-row p-1" id="district">
+                                <option value="">Chọn quận</option>
+                                <c:forEach var="district" items="${districtList}">
+                                    <option value="${district.id}">${district.name}</option>
+                                </c:forEach>
+
                             </select>
                         </div>
                         <div class="col-md-5">
@@ -306,10 +308,11 @@
                         <div class="col-md-2">
                             <label style="margin: 0;">Nhân viên</label>
                             <select class="form-select border rounded-0 flex-row p-1" id="staffid" name="staff">
-                                <option value="">Nguyễn Văn a</option>
-                                <option value="1">Nguyễn Văn b</option>
-                                <option value="2">Nguyễn Văn c</option>
-                                <option value="2">Nguyễn Văn d</option>
+                                <option value="">Chọn nhân viên</option>
+                                <c:forEach var="user" items="${userList}">
+                                    <option value="${user.id}">${user.username}</option>
+                                </c:forEach>
+
                             </select>
                         </div>
                     </div>
@@ -766,6 +769,11 @@
 
     <script>
 
+        $(document).ready(function (){
+            $("#btnSearch").click(function (){
+
+            });
+        });
         var ctx = document.getElementById("chart-bars").getContext("2d");
 
         new Chart(ctx, {
