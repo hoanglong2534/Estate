@@ -112,6 +112,8 @@ public class BuildingEntity {
     @Column(name = "managerphonenumber")
     private String managerphonenumber;
 
+
+
     // relation table district: n - 1
     @ManyToOne
     @JoinColumn(name = "districtid", nullable = false)

@@ -323,8 +323,8 @@
                             <div class="d-flex flex-wrap align-items-center justify-content-end gap-2 mb-3">
                                 <div>
                                     <ul class="nav nav-pills">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target=".add-new"
-                                           class="btn btn-danger bg-gradient-danger">
+                                        <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target=".add-new"
+                                           class="btn btn-danger bg-gradient-danger" >
                                             <i class="bx bx-trash font-size-18"></i> Xóa tòa nhà
                                         </a>
                                     </ul>
@@ -390,10 +390,11 @@
                                                                     class="bx bx-pencil font-size-18"></i></a>
                                                         </li>
                                                         <li class="list-inline-item">
-                                                            <a href="javascript:void(0);" data-bs-toggle="tooltip"
-                                                               data-bs-placement="top"
-                                                               title="Xóa tòa nhà" class="px-2 text-danger"><i
-                                                                    class="bx bx-trash-alt font-size-18"></i></a>
+                                                            <a href="javascript:void(0);" onclick="confirmDelete(this, ${building.id})"
+                                                               data-bs-toggle="tooltip" data-bs-placement="top"
+                                                               title="Xóa tòa nhà" class="px-2 text-danger">
+                                                                <i class="bx bx-trash-alt font-size-18"></i>
+                                                            </a>
                                                         </li>
 
 
@@ -692,6 +693,7 @@
 
     <script>
         $(document).ready(function () {
+            loadDistricts();
             $("#btnSearch").click(function () {
                 searchBuildings();
             });
@@ -782,21 +784,50 @@
             });
         }
 
-        function deleteBuilding(id) {
-            if (confirm("Bạn có chắc muốn xóa tòa nhà này?")) {
-                $.ajax({
-                    url: `/api/building/${id}`,
-                    type: "DELETE",
-                    success: function () {
-                        alert("Xóa thành công!");
-                        searchBuildings(); // Refresh lại danh sách sau khi xóa
-                    },
-                    error: function () {
-                        alert("Lỗi khi xóa tòa nhà!");
-                    }
-                });
+
+
+        function confirmDelete(element,id) {
+            console.log("Click vào icon xóa! ID:", id);
+            if (confirm("Bạn có chắc chắn muốn xóa tòa nhà này không?")) {
+                deleteBuilding(element,id); // Nếu OK, gọi API xóa
             }
         }
+
+        function deleteBuilding(element, id) {
+            $.ajax({
+                url: "/api/building/delete/" + id,
+                type: "DELETE",
+                success: function () {
+                    alert("Xoá thành công!");
+                    $(element).closest("tr").remove();
+                },
+                error: function (xhr) {
+                    alert("Lỗi: " + xhr.responseText);
+                }
+            });
+        }
+
+        function loadDistricts() {
+            $.ajax({
+                url: "/api/districts",
+                type: "GET",
+                success: function (data) {
+                    let districtSelect = $("#districtid");
+                    districtSelect.empty();
+                    districtSelect.append('<option value="">Chọn quận</option>');
+                    data.forEach(item => {
+                        districtSelect.append('<option value="' + item.id + '">' + item.name + '</option>');
+
+                        console.log(item.name);
+                    });
+
+                },
+                error: function () {
+                    alert("Lỗi khi tải danh sách quận!");
+                }
+            });
+        }
+
     </script>
 
 

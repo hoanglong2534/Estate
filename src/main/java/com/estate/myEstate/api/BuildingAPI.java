@@ -5,6 +5,8 @@ import com.estate.myEstate.model.dto.BuildingRequestDTO;
 import com.estate.myEstate.model.dto.BuildingResponseDTO;
 import com.estate.myEstate.service.Interface.BuildingService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,13 +14,24 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/building")
 @RequiredArgsConstructor
-public class BuildingAPIController {
+public class BuildingAPI {
 
     private final BuildingService buildingService;
 
     @GetMapping("/search")
     public List<BuildingResponseDTO> searchBuildings(@ModelAttribute BuildingRequestDTO buildingRequestDTO) {
         return buildingService.searchBuilding(buildingRequestDTO);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteBuilding(@PathVariable Long id) {
+        boolean delete = buildingService.deleteBuilding(id);
+        if(delete){
+            return ResponseEntity.ok("Delete Success!");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Delete Failed!");
+        }
     }
 
 

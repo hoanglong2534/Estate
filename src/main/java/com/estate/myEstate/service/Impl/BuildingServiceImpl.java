@@ -35,4 +35,13 @@ public class BuildingServiceImpl implements BuildingService {
         List<BuildingEntity> buildingEntities = buildingRepository.findAll(specification);
         return buildingEntities.stream().map(buildingEntityToBuildingResponeDTO::convertBuildingDTO).toList();
     }
+
+    @Override
+    public boolean deleteBuilding(Long id) {
+        if(buildingRepository.existsById(id)){
+            buildingRepository.deleteById(id);
+            return true;
+        }
+        return false;
+    }
 }

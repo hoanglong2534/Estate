@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface BuildingService {
     List<BuildingResponseDTO> searchBuilding(BuildingRequestDTO buildingRequestDTO);
+
+    boolean deleteBuilding(Long id);
 }
