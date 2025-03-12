@@ -9,6 +9,7 @@ import com.estate.myEstate.service.Interface.DistrictService;
 import com.estate.myEstate.service.Interface.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -37,7 +38,7 @@ public class BuildingAdminController {
     }
 
     @GetMapping("/tables")
-    public ModelAndView tables() {
+    public ModelAndView tables(@ModelAttribute BuildingRequestDTO buildingRequestDTO) {
         ModelAndView mav = new ModelAndView("admin/tables");
         //danh sách tòa nhà
         List<BuildingResponseDTO> buildingResponseDTOList = buildingService.searchBuilding(new BuildingRequestDTO());

@@ -36,7 +36,8 @@
     <link href="../assets/css/nucleo-icons.css" rel="stylesheet"/>
     <link href="../assets/css/nucleo-svg.css" rel="stylesheet"/>
     <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <!-- Material Icons -->
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"/>
@@ -227,15 +228,15 @@
             </div>
             <div class="card-body p-3">
 
-                <form action="" id="searchForm">
+                <form action="/tables" id="searchForm" method="GET">
                     <div class="row" style="margin-bottom: 10px;">
                         <div class="col-md-6 mb-md-0 mb-4">
                             <label style="margin: 0;">Tên tòa nhà</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="name">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="name" name="name">
                         </div>
                         <div class="col-md-6">
                             <label style="margin: 0;">Diện tích sàn</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="floorarea">
+                            <input type="text" class="form-control border p-1 rounded-0" id="floorarea" name="floorarea">
                         </div>
 
                     </div>
@@ -243,22 +244,22 @@
                         <div class="col-md-4 mb-md-0 mb-4">
                             <label style="margin: 0;">Số tầng hầm</label>
                             <input type="text" class="form-control border  rounded-0 flex-row p-1"
-                                   id="numberofbasement">
+                                   id="numberofbasement" name="numberofbasement">
                         </div>
                         <div class="col-md-4">
                             <label style="margin: 0;">Hướng</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="direction">
+                            <input type="text" class="form-control border p-1 rounded-0" id="direction" name="direction">
                         </div>
                         <div class="col-md-4">
                             <label style="margin: 0;">Hạng</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="level">
+                            <input type="text" class="form-control border p-1 rounded-0" id="level" name="level">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-2 mb-md-0 mb-4">
                             <label style="margin: 0;">Quận</label>
-                            <select class="form-select border rounded-0 flex-row p-1" id="district">
+                            <select class="form-select border rounded-0 flex-row p-1" id="districtid" name="districid">
                                 <option value="">Chọn quận</option>
                                 <c:forEach var="district" items="${districtList}">
                                     <option value="${district.id}">${district.name}</option>
@@ -268,11 +269,11 @@
                         </div>
                         <div class="col-md-5">
                             <label style="margin: 0;">Phường</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="ward">
+                            <input type="text" class="form-control border p-1 rounded-0" id="ward" name="ward">
                         </div>
                         <div class="col-md-5">
                             <label style="margin: 0;">Đường</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="street">
+                            <input type="text" class="form-control border p-1 rounded-0" id="street" name="street">
                         </div>
                     </div>
 
@@ -280,34 +281,34 @@
                     <div class="row">
                         <div class="col-md-3 mb-md-0 mb-4">
                             <label style="margin: 0;">Diện tích từ</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="rentareafrom">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="rentareafrom" name="rentareafrom">
                         </div>
                         <div class="col-md-3">
                             <label style="margin: 0;">Diện tích đến</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="rentareato">
+                            <input type="text" class="form-control border p-1 rounded-0" id="rentareato" name="rentareato">
                         </div>
                         <div class="col-md-3">
                             <label style="margin: 0;">Giá thuê từ</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="rentpricefrom">
+                            <input type="text" class="form-control border p-1 rounded-0" id="rentpricefrom" name="rentpricefrom">
                         </div>
                         <div class="col-md-3">
                             <label style="margin: 0;">Giá thuê đến</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="rentpriceto">
+                            <input type="text" class="form-control border p-1 rounded-0" id="rentpriceto" name="rentpriceto">
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-5 mb-md-0 mb-4">
                             <label style="margin: 0;">Tên quản lý</label>
-                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="managername">
+                            <input type="text" class="form-control border  rounded-0 flex-row p-1" id="managername" name="managername">
                         </div>
                         <div class="col-md-5">
                             <label style="margin: 0;">Số điện thoại quản lý</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="managerphonenumber">
+                            <input type="text" class="form-control border p-1 rounded-0" id="managerphonenumber" name="managerphonenumber">
                         </div>
                         <div class="col-md-2">
                             <label style="margin: 0;">Nhân viên</label>
-                            <select class="form-select border rounded-0 flex-row p-1" id="staffid" name="staff">
+                            <select class="form-select border rounded-0 flex-row p-1" id="staffid" name="staffid">
                                 <option value="">Chọn nhân viên</option>
                                 <c:forEach var="user" items="${userList}">
                                     <option value="${user.id}">${user.fullname}</option>
@@ -317,7 +318,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-12 mt-2" id="loaiToaNha">
+                    <div class="col-md-12 mt-2" id="buildingType" name="buildingType" >
                         <label>Loại tòa nhà:</label>
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="nguyenCan" name="buildingType"
@@ -339,7 +340,7 @@
                 </form>
 
                 <style>
-                    #loaiToaNha .form-check-input {
+                    #buildingType .form-check-input {
                         appearance: none;
                         -webkit-appearance: none;
                         -moz-appearance: none;
@@ -354,18 +355,18 @@
                     }
 
                     /* Khi checkbox được chọn */
-                    #loaiToaNha .form-check-input:checked {
+                    #buildingType .form-check-input:checked {
                         background-color: black !important;
                         border-color: black !important;
                     }
 
                     /* Ẩn dấu check trắng */
-                    #loaiToaNha .form-check-input:checked::after {
+                    #buildingType .form-check-input:checked::after {
                         display: none !important;
                         content: "";
                     }
 
-                    #loaiToaNha .form-check-input:checked::before {
+                    #buildingType .form-check-input:checked::before {
                         content: "✔";
                         font-size: 14px;
                         color: white;
@@ -420,6 +421,7 @@
                         <div class="col-lg-12">
                             <div class="">
                                 <div class="table-responsive">
+
                                     <table class="table project-list-table table-nowrap align-middle table-borderless"
                                            id="respone">
                                         <thead>
@@ -768,263 +770,124 @@
     <script src="../assets/js/plugins/chartjs.min.js"></script>
 
     <script>
-
         $(document).ready(function () {
             $("#btnSearch").click(function () {
                 searchBuildings();
             });
         });
 
-        function searchBuildings(){
-            var data = {
+        // Lấy dữ liệu từ form
+        function searchBuildings() {
+            let data = {
+                name: $('#name').val(),
+                floorarea: $('#floorarea').val(),
+                numberofbasement: $('#numberofbasement').val(),
+                direction: $('#direction').val(),
+                level: $('#level').val(),
+                districtid: $('#districtid').val(),
+                ward: $('#ward').val(),
+                street: $('#street').val(),
+                rentareafrom: $('#rentareafrom').val(),
+                rentareato: $('#rentareato').val(),
+                rentpricefrom: $('#rentpricefrom').val(),
+                rentpriceto: $('#rentpriceto').val(),
+                managername: $('#managername').val(),
+                managerphonenumber: $('#managerphonenumber').val(),
+                staffid: $('#staffid').val(),
+                buildingType: $("input[name='buildingType']:checked").map((_, el) => el.value).get()
+            };
 
-            }
+            $.ajax({
+                url: "/api/building/search",
+                type: "GET",
+                data: data,
+                beforeSend: function () {
+                    $("#respone tbody").html('<tr><td colspan="9">Đang tải dữ liệu...</td></tr>');
+                },
+                success: function (response) {
+                    console.log("Dữ liệu từ API:", response);
+                    let rows = '';
+                    if (response.length > 0) {
+                        response.forEach(building => {
+                            rows += `
+                            <tr>
+                                <th scope="row" class="ps-1">
+                                    <div class="form-check font-size-16">
+                                        <input type="checkbox" class="form-check-input" id="contacusercheck_${building.id}"/>
+                                        <label class="form-check-label" for="contacusercheck_${building.id}"></label>
+                                    </div>
+                                </th>
+                                <td>${building.name}</td>
+                                <td>${building.address}</td>
+                                <td>${building.numberOfBasement}</td>
+                                <td>${building.managerName}</td>
+                                <td>${building.managerPhoneNumber}</td>
+                                <td>${building.floorArea}</td>
+                                <td>${building.rentArea}</td>
+                                <td>
+                                    <ul class="list-inline mb-0">
+                                        <li class="list-inline-item">
+                                            <a href="/edit?id=${building.id}" data-bs-toggle="tooltip"
+                                               title="Sửa tòa nhà" class="px-2 text-primary">
+                                                <i class="bx bx-pencil font-size-18"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="javascript:void(0);" onclick="deleteBuilding(${building.id})"
+                                               data-bs-toggle="tooltip" title="Xóa tòa nhà" class="px-2 text-danger">
+                                                <i class="bx bx-trash-alt font-size-18"></i>
+                                            </a>
+                                        </li>
+                                        <li class="list-inline-item">
+                                            <a href="javascript:void(0);" data-bs-toggle="modal"
+                                               data-bs-target="#modalGiaoToaNha"
+                                               data-bs-toggle="tooltip" title="Giao tòa nhà"
+                                               class="px-2 text-danger">
+                                                <i class="bx bx-user-check font-size-18"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        `;
+                        });
+                    } else {
+                        rows = '<tr><td colspan="9" class="text-center">Không tìm thấy dữ liệu</td></tr>';
+                    }
+                    console.log("HTML rows:", rows);
+
+                    $("#respone tbody").html(rows);
+                    $("#respone tbody").show();
+                },
+                error: function () {
+                    $("#respone tbody").html('<tr><td colspan="9" class="text-danger">Lỗi tải dữ liệu</td></tr>');
+                }
+            });
         }
 
-        var ctx = document.getElementById("chart-bars").getContext("2d");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: ["M", "T", "W", "T", "F", "S", "S"],
-                datasets: [{
-                    label: "Views",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    borderRadius: 4,
-                    borderSkipped: false,
-                    backgroundColor: "#43A047",
-                    data: [50, 45, 22, 28, 50, 60, 76],
-                    barThickness: 'flex'
-                },],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
+        function deleteBuilding(id) {
+            if (confirm("Bạn có chắc muốn xóa tòa nhà này?")) {
+                $.ajax({
+                    url: `/api/building/${id}`,
+                    type: "DELETE",
+                    success: function () {
+                        alert("Xóa thành công!");
+                        searchBuildings(); // Refresh lại danh sách sau khi xóa
+                    },
+                    error: function () {
+                        alert("Lỗi khi xóa tòa nhà!");
                     }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5],
-                            color: '#e5e5e5'
-                        },
-                        ticks: {
-                            suggestedMin: 0,
-                            suggestedMax: 500,
-                            beginAtZero: true,
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                lineHeight: 2
-                            },
-                            color: "#737373"
-                        },
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#737373',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-
-        var ctx2 = document.getElementById("chart-line").getContext("2d");
-
-        new Chart(ctx2, {
-            type: "line",
-            data: {
-                labels: ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"],
-                datasets: [{
-                    label: "Sales",
-                    tension: 0,
-                    borderWidth: 2,
-                    pointRadius: 3,
-                    pointBackgroundColor: "#43A047",
-                    pointBorderColor: "transparent",
-                    borderColor: "#43A047",
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [120, 230, 130, 440, 250, 360, 270, 180, 90, 300, 310, 220],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: function (context) {
-                                const fullMonths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-                                return fullMonths[context[0].dataIndex];
-                            }
-                        }
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [4, 4],
-                            color: '#e5e5e5'
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#737373',
-                            padding: 10,
-                            font: {
-                                size: 12,
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#737373',
-                            padding: 10,
-                            font: {
-                                size: 12,
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-        var ctx3 = document.getElementById("chart-line-tasks").getContext("2d");
-
-        new Chart(ctx3, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Tasks",
-                    tension: 0,
-                    borderWidth: 2,
-                    pointRadius: 3,
-                    pointBackgroundColor: "#43A047",
-                    pointBorderColor: "transparent",
-                    borderColor: "#43A047",
-                    backgroundColor: "transparent",
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [4, 4],
-                            color: '#e5e5e5'
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            color: '#737373',
-                            font: {
-                                size: 14,
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [4, 4]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#737373',
-                            padding: 10,
-                            font: {
-                                size: 14,
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-    </script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
+                });
             }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
     </script>
+
+
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
+<%--    <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>--%>
+
+
 </main>
 </body>
 </html>
