@@ -34,5 +34,15 @@ public class BuildingAPI {
         }
     }
 
+    @DeleteMapping("/delete-all")
+    public ResponseEntity<?> deleteAllBuildings(@RequestBody List<Long> ids) {
+        boolean delete = buildingService.deleteBuildings(ids);
+        if(delete){
+            return ResponseEntity.ok("Delete Success!");
+        }
+        else{
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Delete Failed!");
+        }
+    }
 
 }

@@ -151,30 +151,22 @@
 
                 <form action="/tables" id="searchForm" method="GET">
                     <div class="row" style="margin-bottom: 10px;">
-                        <div class="col-md-6 mb-md-0 mb-4">
+                        <div class="col-md-4 mb-md-0 mb-4">
                             <label style="margin: 0;">Tên tòa nhà</label>
                             <input type="text" class="form-control border  rounded-0 flex-row p-1" id="name" name="name">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label style="margin: 0;">Diện tích sàn</label>
                             <input type="text" class="form-control border p-1 rounded-0" id="floorarea" name="floorarea">
                         </div>
 
-                    </div>
-                    <div class="row">
                         <div class="col-md-4 mb-md-0 mb-4">
                             <label style="margin: 0;">Số tầng hầm</label>
                             <input type="text" class="form-control border  rounded-0 flex-row p-1"
                                    id="numberofbasement" name="numberofbasement">
                         </div>
-                        <div class="col-md-4">
-                            <label style="margin: 0;">Hướng</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="direction" name="direction">
-                        </div>
-                        <div class="col-md-4">
-                            <label style="margin: 0;">Hạng</label>
-                            <input type="text" class="form-control border p-1 rounded-0" id="level" name="level">
-                        </div>
+
+
                     </div>
 
                     <div class="row">
@@ -324,8 +316,8 @@
                                 <div>
                                     <ul class="nav nav-pills">
                                         <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target=".add-new"
-                                           class="btn btn-danger bg-gradient-danger" >
-                                            <i class="bx bx-trash font-size-18"></i> Xóa tòa nhà
+                                           class="btn btn-danger bg-gradient-danger " id="btnDelete"     >
+                                            <i class="bx bx-trash font-size-18" ></i> Xóa tòa nhà
                                         </a>
                                     </ul>
                                 </div>
@@ -348,10 +340,9 @@
                                         <thead>
                                         <tr>
                                             <th scope="col" class="ps-1" style="width: 50px;">
-                                                <div class="form-check font-size-16"><input type="checkbox"
-                                                                                            class="form-check-input"
-                                                                                            id="contacusercheck"/><label
-                                                        class="form-check-label" for="contacusercheck"></label>
+                                                <div class="form-check font-size-16">
+                                                    <input type="checkbox" class="form-check-input" id="selectAllCheckbox"/>
+                                                    <label class="form-check-label" ></label>
                                                 </div>
                                             </th>
                                             <th scope="col">Tên tòa nhà</th>
@@ -368,10 +359,10 @@
                                         <c:forEach var="building" items="${buildingList}">
                                             <tr>
                                                 <th scope="row" class="ps-1">
-                                                    <div class="form-check font-size-16"><input type="checkbox"
-                                                                                                class="form-check-input"
-                                                                                                id="contacusercheck1"/><label
-                                                            class="form-check-label" for="contacusercheck1"></label>
+                                                    <div class="form-check font-size-16">
+                                                        <input type="checkbox" class="form-check-input buildingCheckbox" id="contacusercheck${building.id}" value="${building.id}"
+                                                        /><label
+                                                            class="form-check-label" ></label>
                                                     </div>
                                                 </th>
                                                 <td>${building.name}</td>
@@ -786,11 +777,26 @@
 
 
 
-        function confirmDelete(element,id) {
-            console.log("Click vào icon xóa! ID:", id);
-            if (confirm("Bạn có chắc chắn muốn xóa tòa nhà này không?")) {
-                deleteBuilding(element,id); // Nếu OK, gọi API xóa
+        function confirmDelete(element, id) {
+            if (!id) {
+                Swal.fire("Lỗi!", "ID tòa nhà không hợp lệ!", "error");
+                return;
             }
+
+            Swal.fire({
+                title: "Bạn có chắc chắn?",
+                text: "Hành động này sẽ xóa tòa nhà khỏi hệ thống!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Tiếp tục xóa",
+                cancelButtonText: "Hủy"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    deleteBuilding(element, id); // Nếu bấm OK, gọi API xóa
+                }
+            });
         }
 
         function deleteBuilding(element, id) {
@@ -798,14 +804,21 @@
                 url: "/api/building/delete/" + id,
                 type: "DELETE",
                 success: function () {
-                    alert("Xoá thành công!");
-                    $(element).closest("tr").remove();
+                    Swal.fire({
+                        title: "Xóa thành công!",
+                        text: "Tòa nhà đã được xóa khỏi hệ thống.",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then(() => {
+                        $(element).closest("tr").remove(); // Xóa dòng trên giao diện
+                    });
                 },
                 error: function (xhr) {
-                    alert("Lỗi: " + xhr.responseText);
+                    Swal.fire("Lỗi!", "Không thể xóa tòa nhà. Vui lòng thử lại.", "error");
                 }
             });
         }
+
 
         function loadDistricts() {
             $.ajax({
@@ -817,8 +830,6 @@
                     districtSelect.append('<option value="">Chọn quận</option>');
                     data.forEach(item => {
                         districtSelect.append('<option value="' + item.id + '">' + item.name + '</option>');
-
-                        console.log(item.name);
                     });
 
                 },
@@ -827,6 +838,82 @@
                 }
             });
         }
+        // Lấy danh sách ID của các tòa nhà được chọn
+        function getSelectedBuildingIds() {
+            let selectedIds = [];
+            $(".buildingCheckbox:checked").each(function () {
+                selectedIds.push($(this).val());
+            });
+            return selectedIds;
+        }
+
+        // Chọn / bỏ chọn tất cả checkbox
+        $("#selectAllCheckbox").click(function () {
+            $(".buildingCheckbox").prop("checked", $(this).prop("checked"));
+        });
+
+        // Khi chọn / bỏ chọn một checkbox con, cập nhật checkbox "Chọn tất cả"
+        $(document).on("click", ".buildingCheckbox", function () {
+            let totalCheckboxes = $(".buildingCheckbox").length;
+            let checkedCheckboxes = $(".buildingCheckbox:checked").length;
+
+            $("#selectAllCheckbox").prop("checked", totalCheckboxes === checkedCheckboxes);
+        });
+
+        //hàm xóa nhiều tòa nhà
+        function deleteSelectedBuildings() {
+            let selectedIds = getSelectedBuildingIds();
+
+            if (selectedIds.length === 0) {
+                Swal.fire({
+                    title: "Chưa chọn tòa nhà!",
+                    text: "Vui lòng chọn ít nhất một tòa nhà để xóa.",
+                    icon: "warning",
+                    confirmButtonText: "OK"
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: "Xác nhận xóa",
+                text: "Bạn có chắc chắn xóa các tòa nhà này không?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Tiếp tục xóa",
+                cancelButtonText: "Hủy",
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "/api/building/delete-all",
+                        type: "DELETE",
+                        contentType: "application/json",
+                        data: JSON.stringify(selectedIds),
+                        success: function () {
+                            Swal.fire({
+                                title: "Xóa thành công!",
+                                text: "Các tòa nhà đã được xóa khỏi hệ thống.",
+                                icon: "success",
+                                confirmButtonText: "OK"
+                            }).then(() => {
+                                $(".buildingCheckbox:checked").closest("tr").remove();
+                                $("#selectAllCheckbox").prop("checked", false);
+                            });
+                        },
+                        error: function (xhr) {
+                            Swal.fire("Lỗi!", "Không thể xóa tòa nhà. Vui lòng thử lại.", "error");
+                        }
+                    });
+                }
+            });
+        }
+
+
+        $("#btnDelete").click(function () {
+            console.log("nhan nut Xoa !")
+            deleteSelectedBuildings();
+        });
 
     </script>
 
@@ -834,6 +921,8 @@
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
 </main>
 </body>

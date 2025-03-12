@@ -44,4 +44,14 @@ public class BuildingServiceImpl implements BuildingService {
         }
         return false;
     }
+
+    @Override
+    public boolean deleteBuildings(List<Long> ids) {
+        if (ids != null && !ids.isEmpty()) {
+            buildingRepository.deleteAllById(ids);
+            return true;
+        }
+        return false;
+    }
+
 }
