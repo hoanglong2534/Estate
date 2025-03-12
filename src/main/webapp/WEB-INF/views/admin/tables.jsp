@@ -726,57 +726,53 @@
                     $("#respone tbody").html('<tr><td colspan="9">Đang tải dữ liệu...</td></tr>');
                 },
                 success: function (response) {
-                    console.log("Dữ liệu từ API:", response);
                     let rows = '';
                     if (response.length > 0) {
                         response.forEach(building => {
-                            rows += `
-                            <tr>
-                                <th scope="row" class="ps-1">
-                                    <div class="form-check font-size-16">
-                                        <input type="checkbox" class="form-check-input" id="contacusercheck_${building.id}"/>
-                                        <label class="form-check-label" for="contacusercheck_${building.id}"></label>
-                                    </div>
-                                </th>
-                                <td>${building.name}</td>
-                                <td>${building.address}</td>
-                                <td>${building.numberOfBasement}</td>
-                                <td>${building.managerName}</td>
-                                <td>${building.managerPhoneNumber}</td>
-                                <td>${building.floorArea}</td>
-                                <td>${building.rentArea}</td>
-                                <td>
-                                    <ul class="list-inline mb-0">
-                                        <li class="list-inline-item">
-                                            <a href="/edit?id=${building.id}" data-bs-toggle="tooltip"
-                                               title="Sửa tòa nhà" class="px-2 text-primary">
-                                                <i class="bx bx-pencil font-size-18"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="javascript:void(0);" onclick="deleteBuilding(${building.id})"
-                                               data-bs-toggle="tooltip" title="Xóa tòa nhà" class="px-2 text-danger">
-                                                <i class="bx bx-trash-alt font-size-18"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a href="javascript:void(0);" data-bs-toggle="modal"
-                                               data-bs-target="#modalGiaoToaNha"
-                                               data-bs-toggle="tooltip" title="Giao tòa nhà"
-                                               class="px-2 text-danger">
-                                                <i class="bx bx-user-check font-size-18"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        `;
+                            rows += "<tr>" +
+                                "<th scope='row' class='ps-1'>" +
+                                "<div class='form-check font-size-16'>" +
+                                "<input type='checkbox' class='form-check-input' id='contacusercheck_" + building.id + "'/>" +
+                                "<label class='form-check-label' for='contacusercheck_" + building.id + "'></label>" +
+                                "</div>" +
+                                "</th>" +
+                                "<td>" + building.name + "</td>" +
+                                "<td>" + building.address + "</td>" +
+                                "<td>" + building.numberOfBasement + "</td>" +
+                                "<td>" + building.managerName + "</td>" +
+                                "<td>" + building.managerPhoneNumber + "</td>" +
+                                "<td>" + building.floorArea + "</td>" +
+                                "<td>" + building.rentArea + "</td>" +
+                                "<td>" +
+                                "<ul class='list-inline mb-0'>" +
+                                "<li class='list-inline-item'>" +
+                                "<a href='/edit?id=" + building.id + "' data-bs-toggle='tooltip' " +
+                                "title='Sửa tòa nhà' class='px-2 text-primary'>" +
+                                "<i class='bx bx-pencil font-size-18'></i>" +
+                                "</a>" +
+                                "</li>" +
+                                "<li class='list-inline-item'>" +
+                                "<a href='javascript:void(0);' onclick='deleteBuilding(" + building.id + ")' " +
+                                "data-bs-toggle='tooltip' title='Xóa tòa nhà' class='px-2 text-danger'>" +
+                                "<i class='bx bx-trash-alt font-size-18'></i>" +
+                                "</a>" +
+                                "</li>" +
+                                "<li class='list-inline-item'>" +
+                                "<a href='javascript:void(0);' data-bs-toggle='modal' " +
+                                "data-bs-target='#modalGiaoToaNha' " +
+                                "data-bs-toggle='tooltip' title='Giao tòa nhà' " +
+                                "class='px-2 text-danger'>" +
+                                "<i class='bx bx-user-check font-size-18'></i>" +
+                                "</a>" +
+                                "</li>" +
+                                "</ul>" +
+                                "</td>" +
+                                "</tr>";
+
                         });
                     } else {
                         rows = '<tr><td colspan="9" class="text-center">Không tìm thấy dữ liệu</td></tr>';
                     }
-                    console.log("HTML rows:", rows);
-
                     $("#respone tbody").html(rows);
                     $("#respone tbody").show();
                 },
@@ -806,7 +802,7 @@
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-<%--    <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>--%>
+    <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
 
 </main>
 </body>

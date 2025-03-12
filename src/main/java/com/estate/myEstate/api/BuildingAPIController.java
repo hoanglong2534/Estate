@@ -15,9 +15,11 @@ import java.util.List;
 public class BuildingAPIController {
 
     private final BuildingService buildingService;
+
     @GetMapping("/search")
     public List<BuildingResponseDTO> searchBuildings(@ModelAttribute BuildingRequestDTO buildingRequestDTO) {
         return buildingService.searchBuilding(buildingRequestDTO);
     }
+
 
 }
