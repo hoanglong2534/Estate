@@ -15,6 +15,8 @@
 
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/estate.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <title>
         Thêm tòa nhà
     </title>
@@ -212,111 +214,95 @@
 
                         </a>
 
-                        <a href="#" data-bs-toggle="modal" data-bs-target=".add-new"
-                           class="btn btn-success bg-gradient-success ">
+                        <button type="button" class="btn btn-success bg-gradient-success" id="btnAdd">
                             <i class="bx bx-plus me-1"></i> Thêm tòa nhà
-                        </a>
+                        </button>
 
                     </div>
 
 
                 </div>
             </div>
+            <form action="${pageContext.request.contextPath}/building/addBuilding" method="post" id="buildingForm">
+
             <div class="card-body p-3">
-                <div class="row" style="margin-bottom: 10px;">
-                    <div class="col-md-6 mb-md-0 mb-4">
-                        <label style="margin: 0;">Tên tòa nhà</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
+                    <div class="row" style="margin-bottom: 10px;">
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <label style="margin: 0;">Tên tòa nhà</label>
+                            <input type="text" class="form-control border rounded-0 flex-row p-1" id="name" name="name">
+                        </div>
+                        <div class="col-md-4">
+                            <label style="margin: 0;">Diện tích sàn</label>
+                            <input type="number" class="form-control border p-1 rounded-0" id="floorarea" name="floorarea">
+                        </div>
+                        <div class="col-md-4 mb-md-0 mb-4">
+                            <label style="margin: 0;">Số tầng hầm</label>
+                            <input type="number" class="form-control border rounded-0 flex-row p-1" id="numberofbasement" name="numberofbasement">
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label style="margin: 0;">Diện tích sàn</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
+
+                    <div class="row">
+                        <div class="col-md-2 mb-md-0 mb-4">
+                            <label style="margin: 0;">Quận</label>
+                            <input type="text" class="form-control border rounded-0 flex-row p-1" id="district" name="district">
+                        </div>
+                        <div class="col-md-5">
+                            <label style="margin: 0;">Phường</label>
+                            <input type="text" class="form-control border p-1 rounded-0" id="ward" name="ward">
+                        </div>
+                        <div class="col-md-5">
+                            <label style="margin: 0;">Đường</label>
+                            <input type="text" class="form-control border p-1 rounded-0" id="street" name="street">
+                        </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-md-0 mb-4">
+                            <label style="margin: 0;">Diện tích thuê</label>
+                            <input type="number" class="form-control border rounded-0 flex-row p-1" id="rentarea" name="rentarea">
+                        </div>
+                        <div class="col-md-6">
+                            <label style="margin: 0;">Giá thuê</label>
+                            <input type="number" class="form-control border p-1 rounded-0" id="rentprice" name="rentprice">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-5 mb-md-0 mb-4">
+                            <label style="margin: 0;">Tên quản lý</label>
+                            <input type="text" class="form-control border rounded-0 flex-row p-1" id="managername" name="managername">
+                        </div>
+                        <div class="col-md-5">
+                            <label style="margin: 0;">Số điện thoại quản lý</label>
+                            <input type="text" class="form-control border p-1 rounded-0" id="managerphonenumber" name="managerphonenumber">
+                        </div>
+                        <div class="col-md-2">
+                            <label style="margin: 0;">Nhân viên</label>
+                            <input type="text" class="form-control border p-1 rounded-0" id="staff" name="staff">
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2" id="loaiToaNha">
+                        <label>Loại tòa nhà:</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="buildingtype" value="nguyen-can">
+                            <label class="form-check-label">Nguyên căn</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="buildingtype" value="noi-that">
+                            <label class="form-check-label">Nội thất</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="buildingtype" value="tang-tret">
+                            <label class="form-check-label">Tầng trệt</label>
+                        </div>
+                    </div>
+
 
                 </div>
-                <div class="row">
-                    <div class="col-md-4 mb-md-0 mb-4">
-                        <label style="margin: 0;">Số tầng hầm</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="margin: 0;">Hướng</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-4">
-                        <label style="margin: 0;">Hạng</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
+            </form>
 
-                <div class="row">
-                    <div class="col-md-2 mb-md-0 mb-4">
-                        <label style="margin: 0;">Quận</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-5">
-                        <label style="margin: 0;">Phường</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-5">
-                        <label style="margin: 0;">Đường</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="col-md-3 mb-md-0 mb-4">
-                        <label style="margin: 0;">Diện tích thuê</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-3">
-                        <label style="margin: 0;">Giá thuêthuê</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-3">
-                        <label style="margin: 0;">Hạng </label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-3">
-                        <label style="margin: 0;">Kết cấu</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5 mb-md-0 mb-4">
-                        <label style="margin: 0;">Tên quản lý</label>
-                        <input type="text" class="form-control border  rounded-0 flex-row p-1">
-                    </div>
-                    <div class="col-md-5">
-                        <label style="margin: 0;">Số điện thoại quản lý</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                    <div class="col-md-2">
-                        <label style="margin: 0;">Nhân viên</label>
-                        <input type="text" class="form-control border p-1 rounded-0">
-                    </div>
-                </div>
-
-                <div class="col-md-12 mt-2" id="loaiToaNha">
-                    <label>Loại tòa nhà:</label>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="nguyenCan" value="">
-                        <label class="form-check-label" for="nguyenCan">Nguyên căn</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="noiThat" value="">
-                        <label class="form-check-label" for="noiThat">Nội thất</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="checkbox" id="tangTret" value="">
-                        <label class="form-check-label" for="khongNoiThat">Tầng trệt</label>
-                    </div>
-
-                </div>
-
-                <style>
+            <style>
                     #loaiToaNha .form-check-input {
                         appearance: none;
                         -webkit-appearance: none;
@@ -421,8 +407,96 @@
     <script src="../assets/js/plugins/chartjs.min.js"></script>
 
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("btnAdd").addEventListener("click", function () {
+                let name = document.getElementById("name").value.trim();
+                let floorArea = document.getElementById("floorarea").value.trim();
+                let numberOfBasement = document.getElementById("numberofbasement").value.trim();
+                let district = document.getElementById("district").value.trim();
+                let ward = document.getElementById("ward").value.trim();
+                let street = document.getElementById("street").value.trim();
+                let rentArea = document.getElementById("rentarea").value.trim();
+                let rentPrice = document.getElementById("rentprice").value.trim();
+                let managerName = document.getElementById("managername").value.trim();
+                let managerPhoneNumber = document.getElementById("managerphonenumber").value.trim();
+                let staff = document.getElementById("staff").value.trim();
+
+                // Lấy danh sách loại tòa nhà được chọn
+                let buildingTypes = [];
+                document.querySelectorAll("input[name='buildingtype']:checked").forEach((checkbox) => {
+                    buildingTypes.push(checkbox.value);
+                });
+
+                // Kiểm tra dữ liệu có hợp lệ không
+                if (!name || !floorArea || !rentPrice) {
+                    Swal.fire({
+                        icon: "warning",
+                        title: "Thiếu thông tin!",
+                        text: "Vui lòng nhập đầy đủ thông tin bắt buộc (Tên tòa nhà, Diện tích sàn, Giá thuê)."
+                    });
+                    return;
+                }
+
+                let formData = {
+                    name,
+                    floorArea: parseInt(floorArea),
+                    numberOfBasement: parseInt(numberOfBasement),
+                    district,
+                    ward,
+                    street,
+                    rentArea: parseInt(rentArea),
+                    rentPrice: parseInt(rentPrice),
+                    managerName,
+                    managerPhoneNumber,
+                    staff,
+                    buildingTypes
+                };
+
+                console.log("Sending data: ", formData);
+
+                // Gửi dữ liệu bằng AJAX
+                fetch("/building/addBuilding", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error("Lỗi khi gửi dữ liệu!");
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        Swal.fire({
+                            icon: "success",
+                            title: "Thêm thành công!",
+                            text: "Tòa nhà đã được thêm vào hệ thống.",
+                            showConfirmButton: false,
+                            timer: 2000
+                        }).then(() => {
+                            window.location.reload(); // Tải lại trang sau khi thêm thành công
+                        });
+                    })
+                    .catch(error => {
+                        console.error("Error:", error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Lỗi hệ thống!",
+                            text: "Không thể thêm tòa nhà. Vui lòng thử lại sau."
+                        });
+                    });
+            });
+        });
+    </script>
+
+
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</main>
 </body>
 
 </html>

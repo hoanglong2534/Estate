@@ -696,8 +696,6 @@
                 name: $('#name').val(),
                 floorarea: $('#floorarea').val(),
                 numberofbasement: $('#numberofbasement').val(),
-                direction: $('#direction').val(),
-                level: $('#level').val(),
                 districtid: $('#districtid').val(),
                 ward: $('#ward').val(),
                 street: $('#street').val(),

@@ -1,8 +1,10 @@
 package com.estate.myEstate.api;
 
 
+import com.estate.myEstate.model.dto.BuildingAddDTO;
 import com.estate.myEstate.model.dto.BuildingRequestDTO;
 import com.estate.myEstate.model.dto.BuildingResponseDTO;
+import com.estate.myEstate.model.entity.BuildingEntity;
 import com.estate.myEstate.service.Interface.BuildingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -43,6 +45,12 @@ public class BuildingAPI {
         else{
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Delete Failed!");
         }
+    }
+
+    @PostMapping("/addBuilding")
+    public ResponseEntity<BuildingEntity> addBuilding(@RequestBody BuildingAddDTO buildingAddDTO) {
+        BuildingEntity buildingEntity = buildingService.addBuilding(buildingAddDTO);
+        return  ResponseEntity.status(HttpStatus.CREATED).body(buildingEntity);
     }
 
 }

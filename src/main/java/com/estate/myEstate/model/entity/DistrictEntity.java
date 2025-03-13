@@ -21,10 +21,10 @@ public class DistrictEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "code", nullable = false)
+    @Column(name = "code")
     private String code;
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name")
     private String name;
 
     //    relation table building: 1 - n
