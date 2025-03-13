@@ -12,6 +12,4 @@ import lombok.Setter;
 public class DistrictResponeDTO {
     private Long id;
     private String name;
-    private String code;
-
 }

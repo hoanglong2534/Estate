@@ -49,8 +49,11 @@ public class BuildingAPI {
 
     @PostMapping("/addBuilding")
     public ResponseEntity<BuildingEntity> addBuilding(@RequestBody BuildingAddDTO buildingAddDTO) {
+        System.out.println("Received data: " + buildingAddDTO); // Debug dữ liệu gửi lên
+
         BuildingEntity buildingEntity = buildingService.addBuilding(buildingAddDTO);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(buildingEntity);
+        return ResponseEntity.status(HttpStatus.CREATED).body(buildingEntity);
     }
+
 
 }

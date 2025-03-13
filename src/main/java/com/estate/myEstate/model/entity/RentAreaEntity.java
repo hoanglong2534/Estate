@@ -1,5 +1,6 @@
 package com.estate.myEstate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,5 +38,6 @@ public class RentAreaEntity {
     //   relation table building: n - 1
     @ManyToOne
     @JoinColumn(name = "buildingid")
+    @JsonBackReference
     private BuildingEntity buildingEntity;
 }

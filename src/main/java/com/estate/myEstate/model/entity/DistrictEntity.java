@@ -21,10 +21,7 @@ public class DistrictEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "code")
-    private String code;
-
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     //    relation table building: 1 - n

@@ -1,5 +1,8 @@
 package com.estate.myEstate.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -116,11 +119,13 @@ public class BuildingEntity {
 
     // relation table district: n - 1
     @ManyToOne
-    @JoinColumn(name = "districtid", nullable = false)
+    @JsonBackReference
+    @JoinColumn(name = "districtid")
     private DistrictEntity districtEntity;
 
     // relation table rentarea: 1 - n
     @OneToMany(mappedBy = "buildingEntity", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<RentAreaEntity> rentAreaEntities = new ArrayList<>();
 
     // relation table renttype: n - n
@@ -128,6 +133,7 @@ public class BuildingEntity {
     @JoinTable(name = "buildingrenttype",
             joinColumns = @JoinColumn(name = "buildingid"),
             inverseJoinColumns = @JoinColumn(name = "renttypeid"))
+    @JsonIgnore
     private List<RentTypeEntity> rentTypeEntities = new ArrayList<>();
 
     //  relation table user: n - n

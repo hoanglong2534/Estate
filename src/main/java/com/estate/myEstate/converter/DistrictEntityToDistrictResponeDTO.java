@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 public class DistrictEntityToDistrictResponeDTO {
 
     public static DistrictResponeDTO toDTO(DistrictEntity entity) {
-        return new DistrictResponeDTO(entity.getId(), entity.getName(), entity.getCode());
+        return new DistrictResponeDTO(entity.getId(), entity.getName());
     }
 
     public static List<DistrictResponeDTO> toDTOList(List<DistrictEntity> entities) {

@@ -33,6 +33,8 @@
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
     <!-- CSS Files -->
     <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.2.0" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -407,6 +409,7 @@
     <script src="../assets/js/plugins/chartjs.min.js"></script>
 
 
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("btnAdd").addEventListener("click", function () {
@@ -418,45 +421,46 @@
                 let street = document.getElementById("street").value.trim();
                 let rentArea = document.getElementById("rentarea").value.trim();
                 let rentPrice = document.getElementById("rentprice").value.trim();
-                let managerName = document.getElementById("managername").value.trim();
-                let managerPhoneNumber = document.getElementById("managerphonenumber").value.trim();
+                let managername = document.getElementById("managername").value.trim();
+                let managerphonenumber = document.getElementById("managerphonenumber").value.trim();
                 let staff = document.getElementById("staff").value.trim();
 
                 // Lấy danh sách loại tòa nhà được chọn
-                let buildingTypes = [];
+                let buildingtypes = [];
                 document.querySelectorAll("input[name='buildingtype']:checked").forEach((checkbox) => {
-                    buildingTypes.push(checkbox.value);
+                    buildingtypes.push(checkbox.value);
                 });
 
                 // Kiểm tra dữ liệu có hợp lệ không
-                if (!name || !floorArea || !rentPrice) {
+                if (!name || !floorarea || !rentprice || !numberofbasement || !district || !ward || !street || !rentarea || !managername || !managerphonenumber || !staff || buildingtypes.length === 0) {
                     Swal.fire({
                         icon: "warning",
                         title: "Thiếu thông tin!",
-                        text: "Vui lòng nhập đầy đủ thông tin bắt buộc (Tên tòa nhà, Diện tích sàn, Giá thuê)."
+                        text: "Vui lòng nhập đầy đủ tất cả thông tin bắt buộc, bao gồm ít nhất một loại tòa nhà!"
                     });
                     return;
                 }
 
+
                 let formData = {
                     name,
-                    floorArea: parseInt(floorArea),
-                    numberOfBasement: parseInt(numberOfBasement),
+                    floorarea: parseInt(floorArea),
+                    numberofbasement: parseInt(numberOfBasement),
                     district,
                     ward,
                     street,
-                    rentArea: parseInt(rentArea),
-                    rentPrice: parseInt(rentPrice),
-                    managerName,
-                    managerPhoneNumber,
+                    rentarea: parseInt(rentArea),
+                    rentprice: parseInt(rentPrice),
+                    managername,
+                    managerphonenumber,
                     staff,
-                    buildingTypes
+                    buildingtypes
                 };
 
                 console.log("Sending data: ", formData);
 
                 // Gửi dữ liệu bằng AJAX
-                fetch("/building/addBuilding", {
+                fetch("/api/building/addBuilding", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
@@ -491,6 +495,8 @@
             });
         });
     </script>
+
+
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
