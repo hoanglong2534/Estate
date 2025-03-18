@@ -10,6 +10,7 @@ import com.estate.myEstate.service.Interface.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -29,6 +30,7 @@ public class BuildingAdminController {
 
     @GetMapping("/sign-in")
     public String signIn() {
+        System.out.println("signinnnn");
         return "admin/sign-in";
     }
 
@@ -64,9 +66,6 @@ public class BuildingAdminController {
     public String edit() {
         return "admin/edit";
     }
-
-
-
 
 
 }

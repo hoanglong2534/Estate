@@ -68,19 +68,19 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form role="form" class="text-start">
-                                <div class="input-group input-group-outline my-5">
-                                    <label class="form-label">Username</label>
-                                    <input type="email" class="form-control">
-                                </div>
-                                <div class="input-group input-group-outline mb-5">
-                                    <label class="form-label">Password</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                                <div class="text-center">
-                                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign in</button>
-                                </div>
-                            </form>
+                            <form role="form" class="text-start" method="post" action="/sign-in">
+                            <div class="input-group input-group-outline my-5">
+                                <label class="form-label">Username</label>
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                            <div class="input-group input-group-outline mb-5">
+                                <label class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign in</button>
+                            </div>
+                        </form>
                         </div>
                     </div>
                 </div>

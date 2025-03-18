@@ -61,12 +61,12 @@ public class BuildingServiceImpl implements BuildingService {
     public BuildingEntity addBuilding(BuildingAddDTO buildingAddDTO) {
         BuildingEntity buildingEntity = buildingAddDTOToBuildingEntity.convert(buildingAddDTO);
 
-        // ✅ Tìm hoặc tạo DistrictEntity
+        // Tìm hoặc tạo DistrictEntity
         String districtName = buildingAddDTO.getDistrict();
         DistrictEntity districtEntity = districtService.findOrCreateDistrict(districtName);
         buildingEntity.setDistrictEntity(districtEntity);
 
-        // ✅ Xử lý danh sách nhân viên nếu có
+        // Xử lý danh sách nhân viên nếu có
         List<UserEntity> staffList = userRepository.findByFullname(buildingAddDTO.getStaffname());
         if (!staffList.isEmpty()) {
             buildingEntity.setUserEntities(staffList);

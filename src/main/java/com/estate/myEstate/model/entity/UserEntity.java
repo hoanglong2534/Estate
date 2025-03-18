@@ -54,4 +54,12 @@ public class UserEntity {
     //    relation table building: n - n
     @ManyToMany(mappedBy = "userEntities", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<BuildingEntity> buildingEntities = new ArrayList<>();
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "userid"),
+            inverseJoinColumns = @JoinColumn(name = "roleid")
+    )
+    private List<RoleEntity> roleEntities = new ArrayList<>();
 }
